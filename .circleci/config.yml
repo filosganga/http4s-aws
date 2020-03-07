@@ -135,13 +135,16 @@ workflows:
 
   main:
     jobs:
-    - build
+    - build:
+        context: org-global
 
     - unit_test:
+        context: org-global
         requires:
         - build
 
     - tag:
+        context: org-global
         requires:
         - unit_test
         filters:
@@ -149,5 +152,6 @@ workflows:
             only: master
 
     - release:
+        context: org-global
         requires:
         - tag
