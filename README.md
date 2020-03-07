@@ -1,14 +1,17 @@
 # AWS Signature V4 implementation for http4s
 
+Provides an http4s client middleware that authenticates requests with AWS Auth Signature V4.
+
 ## Getting started
 
 To get started with sbt, simply add the following line to your build.sbt file.
 
 ````sbt
-libraryDependencies += "com.github.fd4s" %% "http4s-aws" % "0.1.0"
+libraryDependencies += "com.github.fd4s" %% "http4s-aws" % "<version>"
 ````
 
 Example of use with S3:
+
 ````scala
 
   import scala.concurrent.ExecutionContext.{global => ec}
@@ -50,3 +53,5 @@ Example of use with S3:
     .unsafeRunSync()
 
 ````
+
+Happy coding!
