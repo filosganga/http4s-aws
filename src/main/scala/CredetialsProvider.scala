@@ -1,3 +1,9 @@
+/*
+ * Copyright 2019-2020 fd4s
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 package com.github.fd4s.http4s.aws
 
 import cats.effect._

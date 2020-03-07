@@ -11,13 +11,24 @@ val log4jV = "2.13.1"
 ThisBuild / scalaVersion := "2.13.1"
 ThisBuild / crossScalaVersions += "2.12.10"
 ThisBuild / organization := "com.github.fd4s"
-ThisBuild / organizationName := "http4s-aws"
+ThisBuild / organizationName := "Fd4s"
 
 lazy val http4sAws = (project in file("."))
+  .enablePlugins(BuildInfoPlugin)
   .settings(
     name := "http4s-aws",
     licenses := List("Apache-2.0" -> url("https://www.apache.org/licenses/LICENSE-2.0.txt")),
     startYear := Some(2019),
+    homepage := Some(url("https://github.com/filosganga/http4s-aws")),
+    scmInfo := Some(ScmInfo(url("https://github.com/filosganga/http4s-aws"), "git@github.com:filosganga/http4s-aws.git")),
+    developers := List(
+      Developer(
+        id = "filosganga",
+        name = "Filippo De Luca",
+        email = "me@filippodeluca.com",
+        url = url("https://fillippodeluca.com")
+      )
+    ),
     headerLicense := Some(
       de.heikoseeberger.sbtheader.License.ALv2(
         s"${startYear.value.get}-${java.time.Year.now}",
@@ -41,6 +52,7 @@ lazy val http4sAws = (project in file("."))
     ),
     version ~= (_.replace('+', '-')),
     dynver ~= (_.replace('+', '-')),
+    buildInfoPackage := "com.github.fd4s.http4s.aws",
     // enable all options from sbt-tpolecat except fatal warnings
     scalacOptions -= "-Xfatal-warnings", 
     javacOptions ++= Seq("-Xlint:unchecked", "-Xlint:deprecation"),
